@@ -19,6 +19,7 @@ public class AppFetchFeedService extends FetchFeedService {
 
 	@Override
 	protected List<Feed> getFeeds() {
+		Log.d(TAG, "getFeeds");
 		List<Feed> feeds = new ArrayList<Feed>();
 		
 		feeds.add(new Feed("rcdc", "http://headlines.yahoo.co.jp/rss/rcdc-c_int.xml") {
@@ -78,19 +79,12 @@ public class AppFetchFeedService extends FetchFeedService {
 	
 	@Override
 	public void onCreate() {
-		com.starbug1.android.newsapp.utils.ResourceProxy.R.init(R.class);
 
 		super.onCreate();
 	}
 
 	@Override
 	protected boolean isValidItem(NewsListItem item) {
-//		if (item.getSource().equals("famitsu")) {
-//			if (item.getLink().toString().indexOf("/news/") != -1) {
-//				return true;
-//			}
-//			return false;
-//		}
 		return super.isValidItem(item);
 	}
 	
